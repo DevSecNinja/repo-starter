@@ -8,11 +8,15 @@ on:
 
 permissions:
   contents: write
+  issues: write
   pull-requests: write
 
 jobs:
   sync:
-    uses: DevSecNinja/.github/.github/workflows/config-sync.yml@27fd66740c629ea38380dcd3bf93e7bc74c54247 # v1.9.0
+    uses: DevSecNinja/.github/.github/workflows/config-sync.yml@9c281b38f863550ddff25df04e6fda0b9b23d00c # v3.3.0
     permissions:
       contents: write
+      # Required: the reusable workflow creates the config-sync label through
+      # the issues API. Without it the run fails with startup_failure.
+      issues: write
       pull-requests: write
